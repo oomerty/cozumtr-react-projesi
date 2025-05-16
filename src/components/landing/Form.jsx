@@ -18,11 +18,15 @@ function Form() {
   };
 
   return (
-    <Section className={"grid grid-cols-1 md:grid-cols-2 gap-8 h-screen"}>
+    <Section
+      className={"grid grid-cols-1 md:grid-cols-2 gap-8 h-max md:h-screen"}
+    >
       <span className="bg-orange-100 p-16 h-max md:h-full overflow-hidden">
         <img
           src="./img/form.png"
           alt="Two animated figures standing next to eachother"
+          className="w-full h-max"
+          loading="lazy"
         />
       </span>
       <form

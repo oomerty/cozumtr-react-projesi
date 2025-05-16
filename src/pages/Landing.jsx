@@ -42,7 +42,7 @@ function Landing() {
         <img
           src="./img/who-we-are.webp"
           alt="Promotional image displaying turmerics, Earthbar branded bottle and half an orange - left to right"
-          className="pt-16 pb-8"
+          className="pt-16 pb-8 w-full aspect-auto"
           loading="lazy"
         />
       </Section>
