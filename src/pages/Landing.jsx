@@ -27,24 +27,28 @@ function Landing() {
     <div className="font-manrope">
       <Hero />
 
-      <Section className="!pb-8" title="Who we are" titleStyle="justify-start">
-        <span className="flex flex-col gap-8">
-          <p>
-            We love what we do and create partnerships with our clients to
-            ensure their digital transformation is positioned for long-term
-            success.We believe that the human dimensions essential to start any
-            successful project and that this is where splendid emotional
-            relationships between the company and people are born.
-          </p>
-        </span>
+      <Section
+        className="!pb-8 !gap-8"
+        title="Who we are"
+        titleStyle="justify-start animate-in fade-in"
+      >
+        <p>
+          We love what we do and create partnerships with our clients to ensure
+          their digital transformation is positioned for long-term success.We
+          believe that the human dimensions essential to start any successful
+          project and that this is where splendid emotional relationships
+          between the company and people are born.
+        </p>
         <img
           src="./img/who-we-are.webp"
           alt="Promotional image displaying turmerics, Earthbar branded bottle and half an orange - left to right"
+          className="pt-16 pb-8"
+          loading="lazy"
         />
       </Section>
 
       <Section
-        className="flex flex-col gap-8"
+        className="flex flex-col gap-8 !pb-32"
         title="Meet the heroes behind the magic"
         titleStyle="text-center"
       >

@@ -1,32 +1,71 @@
+import { useState } from "react";
 import Section from "./Section";
 import Button from "../ui/Button";
 import TextField from "../ui/TextField";
 
 function Form() {
+  const [submitInProgress, setSubmitInProgress] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Form validation and submission logic - log is just for demo
+    setSubmitInProgress(true);
+    setTimeout(() => {
+      e.target.reset();
+      console.log("Form submitted");
+      setSubmitInProgress(false);
+    }, 1000);
+  };
+
   return (
-    <Section className={"grid grid-cols-1 md:grid-cols-2 gap-8"}>
+    <Section className={"grid grid-cols-1 md:grid-cols-2 gap-8 h-screen"}>
       <span className="bg-orange-100 p-16 h-max md:h-full overflow-hidden">
         <img
           src="./img/form.png"
           alt="Two animated figures standing next to eachother"
         />
       </span>
-      <div className="flex flex-col justify-between h-full gap-8">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col justify-between h-full gap-8"
+      >
         <h2 className="text-right text-stone-950 text-3xl font-bold pl-[33%]">
           We'd love to hear from you
         </h2>
         <span className="flex flex-col gap-8">
-          <TextField type="text" placeholder="Name*" required={true} />
-          <TextField type="text" placeholder="Email*" required={true} />
-          <TextField type="text" placeholder="Website URL*" required={true} />
           <TextField
             type="text"
-            placeholder="Project Details*"
+            placeholder="Name"
             required={true}
+            name="name"
+          />
+          <TextField
+            type="email"
+            placeholder="Email"
+            required={true}
+            name="email"
+          />
+          <TextField
+            type="url"
+            placeholder="Website URL"
+            required={true}
+            name="website"
+          />
+          <TextField
+            type="textarea"
+            placeholder="Project Details"
+            required={true}
+            name="project-details"
           />
         </span>
-        <Button>Send Proposal</Button>
-      </div>
+        <Button textClassName={submitInProgress && "animate-spin"}>
+          {submitInProgress ? (
+            <span class="icon-[bx--loader-alt]"></span>
+          ) : (
+            "Send Proposal"
+          )}
+        </Button>
+      </form>
     </Section>
   );
 }
