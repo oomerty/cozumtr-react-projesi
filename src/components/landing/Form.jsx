@@ -5,16 +5,24 @@ import TextField from "../ui/TextField";
 
 function Form() {
   const [submitInProgress, setSubmitInProgress] = useState(false);
+  const [submitButtonText, setSubmitButtonText] = useState("Send Proposal");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Form validation and submission logic - log is just for demo
     setSubmitInProgress(true);
+    setSubmitButtonText("Sending...");
+
     setTimeout(() => {
       e.target.reset();
-      console.log("Form submitted");
+
+      setSubmitButtonText("Sent Proposal!");
       setSubmitInProgress(false);
     }, 1000);
+
+    setTimeout(() => {
+      setSubmitButtonText("Send Proposal");
+    }, 2000);
   };
 
   return (
@@ -64,9 +72,9 @@ function Form() {
         </span>
         <Button textClassName={submitInProgress && "animate-spin"}>
           {submitInProgress ? (
-            <span class="icon-[bx--loader-alt]"></span>
+            <span className="icon-[bx--loader-alt]"></span>
           ) : (
-            "Send Proposal"
+            <span>{submitButtonText}</span>
           )}
         </Button>
       </form>

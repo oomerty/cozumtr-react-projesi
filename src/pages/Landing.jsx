@@ -74,6 +74,7 @@ function Landing() {
           <a
             className="text-style text-blue-600 after:content-['_↗'] leading-loose"
             href="https://www.omermert.com"
+            target="_blank"
           >
             Ömer Mert ERYİĞİT
           </a>{" "}
